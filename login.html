@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="page">
+<h1>Login</h1>
+
+<div class="card">
+<input type="text" id="username" placeholder="Username"><br><br>
+<input type="password" id="password" placeholder="Password"><br><br>
+
+<button onclick="login()">Login</button>
+<p id="msg"></p>
+</div>
+
+</section>
+
+<script>
+function login(){
+ let user = document.getElementById("username").value;
+ let pass = document.getElementById("password").value;
+
+ if(user === "admin" && pass === "1234"){
+   localStorage.setItem("loggedIn", "true");
+   window.location.href = "dashboard.html";
+ } else {
+   document.getElementById("msg").innerText = "Wrong credentials";
+ }
+}
+</script>
+
+</body>
+</html>

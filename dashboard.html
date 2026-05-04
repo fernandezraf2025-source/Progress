@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="#" onclick="logout()">Logout</a>
+</nav>
+
+<section class="page">
+<h1>Progress Tracker</h1>
+
+<div class="card">
+
+<h3>Update Progress</h3>
+
+<input type="number" id="weight" placeholder="Weight (kg)">
+<input type="number" id="calories" placeholder="Calories">
+
+<br><br>
+<button onclick="saveData()">Save</button>
+
+</div>
+
+<div class="card" style="margin-top:20px">
+<h3>Your Data</h3>
+<div class="card" style="margin-top:20px">
+<h3>Progress Chart</h3>
+<canvas id="myChart"></canvas>
+</div>
+<p id="output"></p>
+</div>
+
+</section>
+
+<script>
+// 🔐 LOGIN CHECK
+if(localStorage.getItem("loggedIn") !== "true"){
+  window.location.href = "login.html";
+}
+
+// 📊 GET DATA ARRAY
+let progressData = JSON.parse(localStorage.getItem("progress")) || [];
+
+// 💾 SAVE MULTIPLE DATA
+function saveData(){
+ let weight = document.getElementById("weight").value;
+ let calories = document.getElementById("calories").value;
+
+ let entry = {
+   weight: Number(weight),
+   calories: Number(calories),
+   date: new Date().toLocaleDateString()
+ };
+
+ progressData.push(entry);
+ localStorage.setItem("progress", JSON.stringify(progressData));
+
+ showData();
+ drawChart();
+}
+
+// 📄 SHOW DATA LIST
+function showData(){
+ let output = document.getElementById("output");
+ output.innerHTML = "";
+
+ progressData.forEach(d => {
+   output.innerHTML += 
+   "📅 " + d.date + " | Weight: " + d.weight + "kg | Calories: " + d.calories + "<br>";
+ });
+}
+
+// 📈 DRAW CHART
+let chart;
+
+function drawChart(){
+ let labels = progressData.map(d => d.date);
+ let weights = progressData.map(d => d.weight);
+
+ let ctx = document.getElementById('myChart').getContext('2d');
+
+ if(chart){
+   chart.destroy();
+ }
+
+ chart = new Chart(ctx, {
+   type: 'line',
+   data: {
+     labels: labels,
+     datasets: [{
+       label: 'Weight Progress (kg)',
+       data: weights,
+       borderWidth: 3,
+       tension: 0.3
+     }]
+   },
+   options: {
+     responsive: true
+   }
+ });
+}
+
+// 🚪 LOGOUT
+function logout(){
+ localStorage.removeItem("loggedIn");
+ window.location.href = "login.html";
+}
+
+// INIT
+showData();
+drawChart();
+
