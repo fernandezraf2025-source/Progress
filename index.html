@@ -115,23 +115,31 @@
 
     <div class="motivation-cards">
 
-        <div class="mot-card">
-            <img src="mot1.jpg">
-            <p>It’s not about having time, it’s about making time and boding with my brother.</p>
-        </div>
+        <div class="mot-card"
+        onclick="openMotivation(this)"
+        data-text="It’s not about having time, it’s about making time and bonding with my brother.">
 
-        <div class="mot-card">
-            <img src="mot2.jpg">
-            <p>The struggle today develops the strength tomorrow. "DAY ONE!"</p>
-        </div>
-
-        <div class="mot-card">
-            <img src="mot3.jpg">
-            <p>Don’t stop when you’re tired. Stop when you’re done. But I will improve.</p>
-        </div>
+        <img src="mot1.jpg">
 
     </div>
 
+    <div class="mot-card"
+        onclick="openMotivation(this)"
+        data-text="The struggle today develops the strength tomorrow. DAY ONE!">
+
+        <img src="mot2.jpg">
+
+    </div>
+
+    <div class="mot-card"
+        onclick="openMotivation(this)"
+        data-text="Don’t stop when you’re tired. Stop when you’re done. But I will improve, NOT STOP.">
+
+        <img src="mot3.jpg">
+
+    </div>
+
+</div>
 </section>
 
 <script src="script.js"></script>
