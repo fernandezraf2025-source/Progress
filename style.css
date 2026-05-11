@@ -1299,7 +1299,7 @@ body{
     padding: 80px;
 
     background:
-    linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.4)),
+    linear-gradient(to right, rgba(172, 169, 23, 0.95), rgba(255, 2, 2, 0.4)),
     url("bg.jpg");
 
     background-size: cover;
@@ -1488,89 +1488,89 @@ body{
     padding: 15px;
     color: #ccc;
 }
+
+/* =========================
+   📱 FINAL MOBILE FIX (SAFE)
+   hindi sisira ng design
+========================= */
+
 @media (max-width: 768px){
 
-/* =========================
-   HERO FIX (hindi sobrang baba)
-========================= */
-.hero{
-  flex-direction: column;
-  padding: 30px 15px;
-  height: auto;        /* 🔥 remove 100vh issue */
-  text-align: center;
-}
+  /* prevent sobrang stretch ng page */
+  body{
+    overflow-x: hidden;
+  }
 
-.hero-left{
-  width: 100%;
-}
+  /* HERO = sakto lang, hindi sobrang taas */
+  .hero{
+    min-height: auto !important;
+    padding: 60px 20px !important;
+    flex-direction: column;
+    text-align: center;
+  }
 
-.hero-right{
-  width: 100%;
-  margin-top: 20px;
-}
+  .hero-left h1{
+    font-size: 32px !important;
+    line-height: 1.2;
+  }
 
-.hero-left h1{
-  font-size: 32px;
-  line-height: 1.1;
-}
+  .hero-left p{
+    font-size: 14px;
+  }
 
-/* =========================
-   NAV FIX (hindi nag-iiba design)
-========================= */
-nav{
-  flex-direction: row;
-  padding: 10px 15px;
-  overflow-x: auto;
-  white-space: nowrap;
-}
+  /* HERO IMAGE = hindi malaki sa phone */
+  .hero-img{
+    max-width: 250px !important;
+  }
 
-nav a{
-  font-size: 12px;
-}
+  /* CARDS = hindi dikit dikit / hindi sobrang laki */
+  .cards{
+    gap: 15px;
+    padding: 20px 10px;
+  }
 
-/* =========================
-   CARDS FIX (hindi sobrang laki)
-========================= */
-.cards{
-  flex-direction: column;
-  align-items: center;
-}
+  .card{
+    width: 90% !important;
+    max-width: 320px;
+    margin: 0 auto;
+  }
 
-.card{
-  width: 90%;
-}
+  /* GALLERY = swipe mode (hindi sira layout) */
+  .gallery{
+    justify-content: flex-start !important;
+    padding: 10px !important;
+    gap: 12px;
+  }
 
-/* =========================
-   BODY TYPE FIX (card scroll)
-========================= */
-.body-scroll{
-  flex-direction: row;
-  overflow-x: scroll;
-  padding: 20px;
-  justify-content: flex-start;
-}
+  .gallery img{
+    min-width: 180px;
+    height: 200px;
+  }
 
-/* =========================
-   GALLERY FIX
-========================= */
-.gallery{
-  padding: 10px;
-  justify-content: flex-start;
-}
+  /* NAV = hindi magulo */
+  nav{
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 10px;
+  }
 
-/* =========================
-   TEXT FIX
-========================= */
-.page{
-  padding: 40px 15px;
-}
+  nav a{
+    font-size: 12px;
+    white-space: nowrap;
+  }
 
-h1{
-  font-size: 28px;
-}
+  /* TEXT = hindi OA laki */
+  h1{
+    font-size: 28px !important;
+  }
 
-h2{
-  font-size: 20px;
-}
+  h2{
+    font-size: 20px !important;
+  }
+
+  /* remove unnecessary height issues */
+  .page{
+    padding: 40px 15px !important;
+  }
 
 }
