@@ -177,3 +177,33 @@ function openBodyCard(card){
         }
     };
 }
+function openMotivation(card){
+
+    const img = card.querySelector("img").src;
+    const text = card.dataset.text;
+
+    const overlay = document.createElement("div");
+    overlay.classList.add("popup");
+
+    overlay.innerHTML = `
+        <div class="popup-content">
+
+            <span class="close">&times;</span>
+
+            <img src="${img}">
+
+            <p style="padding:20px;">${text}</p>
+
+        </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    overlay.querySelector(".close").onclick = () => overlay.remove();
+
+    overlay.onclick = (e) => {
+        if(e.target === overlay){
+            overlay.remove();
+        }
+    };
+}
