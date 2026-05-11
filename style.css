@@ -252,8 +252,20 @@ body{
 
    /* HERO */
 .hero{
- text-align:center;
- margin-bottom:40px;
+ min-height:100vh;      /* instead of fixed height */
+  height:auto;
+
+  display:flex;
+  flex-wrap:wrap;
+
+  justify-content:space-between;
+  align-items:center;
+
+  gap:40px;
+
+  padding:120px 40px 80px;  /* BIG IMPORTANT: breathing space */
+
+  position:relative;  /* ensure no overlay bug */
 }
 
 .hero img{
@@ -641,8 +653,175 @@ nav a::after{
  transition:.3s;
 }
 
+/* =========================
+   HERO SAFE LAYOUT
+========================= */
+
+.hero{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:center;
+
+  gap:40px;
+
+  padding:100px 40px 60px;
+
+  position:relative;
+  z-index:1;
+}
+
+/* LEFT TEXT */
+.hero-left{
+  flex:1;
+  min-width:300px;
+  z-index:2; /* text always above background effects */
+}
+
+/* RIGHT IMAGE */
+.hero-right{
+  flex:1;
+  min-width:280px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:2;
+}
+
+/* =========================
+   CARDS SAFE GRID (NO OVERLAP)
+========================= */
+
+.cards{
+  display:flex;
+  flex-wrap:wrap;
+
+  justify-content:center;
+  align-items:stretch;
+
+  gap:20px;
+
+  position:relative;
+  z-index:1;
+}
+
+/* CARD FIX */
+.card{
+  flex:0 1 260px;   /* IMPORTANT: prevents overlap */
+  max-width:100%;
+  position:relative;
+
+  z-index:1;
+}
+
+/* =========================
+   📱 MOBILE FIX (STACK PROPERLY)
+========================= */
+
+@media (max-width:768px){
+
+  .hero{
+    flex-direction:column;
+    text-align:center;
+    padding:80px 20px 40px;
+  }
+
+  .hero-left,
+  .hero-right{
+    min-width:100%;
+  }
+
+  .cards{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .card{
+    width:90%;
+  }
+}
 nav a:hover::after{
  width:100%;
+}
+/* =========================
+   🔥 HOME STABILITY FIX ONLY
+========================= */
+
+.hero{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  gap:40px;
+
+  min-height:90vh;
+
+  padding:100px 40px 80px;
+
+  flex-wrap:wrap;
+
+  position:relative;
+  z-index:1;
+
+  margin-bottom:80px; /* 🔥 IMPORTANT: space bago testimonials/cards */
+}
+
+/* SAFE CONTAINER PARA HINDI DUMIKIT */
+.hero-left,
+.hero-right{
+  flex:1;
+  min-width:300px;
+}
+
+/* TEXT SAFE ZONE */
+.hero-left{
+  z-index:2;
+}
+
+/* IMAGE SAFE ZONE */
+.hero-right{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* IMAGE RESPONSIVE LOCK */
+.hero-img{
+  max-width:380px;
+  width:100%;
+  height:auto;
+}
+
+/* =========================
+   📱 MOBILE HOME FIX (NO OVERLAP)
+========================= */
+
+@media (max-width:768px){
+
+  .hero{
+    flex-direction:column;
+    text-align:center;
+
+    padding:60px 20px;
+
+    gap:25px;
+
+    margin-bottom:60px; /* 🔥 IMPORTANT FIX */
+  }
+
+  .hero-left,
+  .hero-right{
+    min-width:100%;
+  }
+
+  .hero-left h1{
+    font-size:32px;
+    line-height:1.1;
+  }
+
+  .hero-img{
+    max-width:260px;
+  }
 }
 
 /* HERO */
@@ -1998,5 +2177,77 @@ h1,h2{
     height:180px;
   }
 }
-  .hero-left{
 
+/* =========================
+   🔥 HOME HERO FIX ONLY
+========================= */
+
+.hero{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:40px;
+
+  min-height:90vh;
+  padding:60px 20px;
+
+  flex-wrap:wrap; /* IMPORTANT: para hindi sumikip sa phone */
+}
+
+/* LEFT SIDE */
+.hero-left{
+  flex:1;
+  min-width:280px;
+  text-align:left;
+}
+
+/* RIGHT SIDE */
+.hero-right{
+  flex:1;
+  min-width:280px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* IMAGE FIX */
+.hero-img{
+  width:100%;
+  max-width:380px;
+}
+
+/* TEXT FIX */
+.hero-left h1{
+  font-size:clamp(32px, 6vw, 80px);
+  line-height:1.1;
+}
+
+.hero-left p{
+  font-size:16px;
+  color:#ccc;
+}
+
+/* =========================
+   📱 MOBILE FIX (HOME ONLY)
+========================= */
+
+@media (max-width:768px){
+
+  .hero{
+    flex-direction:column;
+    text-align:center;
+    padding:40px 15px;
+  }
+
+  .hero-left{
+    text-align:center;
+  }
+
+  .hero-right{
+    width:100%;
+  }
+
+  .hero-img{
+    max-width:260px;
+  }
+}
