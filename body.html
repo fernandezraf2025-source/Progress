@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Body Types</title>
+<link rel="icon" type="image/png" href="logo.jpg">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,28 +21,63 @@
 </nav>
 
 <section class="page">
+
 <h1>BODY TYPES</h1>
+<p class="subtitle">Know your body, then build discipline around it.</p>
 
 <div class="body-scroll">
 
-<div class="card" onclick="openCard(this)">
-<img src="ecto.jpg">
-<h3>Ectomorph</h3>
-<p>Lean, hard to gain weight.</p>
+<!-- ECTO -->
+<div class="card" onclick="openBodyCard(this)"
+     data-title="Ectomorph"
+     data-desc="Lean body type with fast metabolism."
+     data-challenge="Hard to gain muscle"
+     data-focus="Calorie surplus + heavy compound lifts"
+     data-workouts="Squats, deadlifts, bench press">
+
+  <img src="ecto.jpg">
+
 </div>
 
-<div class="card" onclick="openCard(this)">
-<img src="meso.jpg">
-<h3>Mesomorph</h3>
-<p>Muscular, easy gains.</p>
+<!-- MESO -->
+<div class="card" onclick="openBodyCard(this)"
+     data-title="Mesomorph"
+     data-desc="Athletic build, naturally muscular."
+     data-challenge="Gains muscle fast"
+     data-focus="Progressive overload"
+     data-workouts="Balanced push/pull/legs split">
+
+  <img src="meso.jpg">
+
 </div>
 
-<div class="card" onclick="openCard(this)">
-<img src="endo.jpg">
-<h3>Endomorph</h3>
-<p>Higher fat storage.</p>
+<!-- ENDO -->
+<div class="card" onclick="openBodyCard(this)"
+     data-title="Endomorph"
+     data-desc="Stores fat easily, slower metabolism."
+     data-challenge="Fat loss difficulty"
+     data-focus="Calorie control + cardio"
+     data-workouts="HIIT + full body training">
+
+  <img src="endo.jpg">
+
 </div>
 
+</div>
+
+<!-- EXTRA SECTION -->
+<h2 style="margin-top:50px;">IMPORTANT REMINDER</h2>
+
+<div class="card" style="margin:auto;">
+  <p>
+    Your body type is not your limit.  
+    It is just your starting point.
+  </p>
+
+  <p>
+    Discipline > Genetics.  
+    Consistency always wins.
+  </p>
 </div>
 
 </section>

@@ -10,15 +10,15 @@ function openCard(card){
    // GALLERY SCROLL
    // =========================
    function scrollGallery(id, direction){
-    const gallery = document.getElementById(id);
-   
-    if(!gallery) return;
-   
-    gallery.scrollBy({
-     left: direction * 350,
-     behavior: "smooth"
-    });
-   }
+   const gallery = document.getElementById(id);
+
+   const scrollAmount = 300;
+
+   gallery.scrollBy({
+   left: direction * scrollAmount,
+   behavior: "smooth"
+ });
+}
    
    // =========================
    // FULLSCREEN IMAGES (ALL PAGES)
@@ -73,5 +73,107 @@ function openCard(card){
         setTimeout(typing, 70);
       }
       }
-
       typing();
+      // click expand
+function openCard(card){
+  card.classList.toggle("active");
+}
+
+// scroll reveal animation
+const revealItems = document.querySelectorAll(".reveal");
+
+function showOnScroll(){
+  revealItems.forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+
+    if(top < window.innerHeight - 80){
+      el.classList.add("show");
+    }
+  });
+}
+
+window.addEventListener("scroll", showOnScroll);
+showOnScroll();
+
+function openCard(card){
+
+    // GET DATA
+    const img = card.querySelector("img").src;
+    const title = card.dataset.title;
+    const desc = card.dataset.desc;
+
+    // CREATE POPUP
+    const overlay = document.createElement("div");
+    overlay.classList.add("popup");
+
+    overlay.innerHTML = `
+
+        <div class="popup-content">
+
+            <span class="close">&times;</span>
+
+            <img src="${img}">
+
+            <h2>${title}</h2>
+
+            <p>${desc}</p>
+
+        </div>
+
+    `;
+
+    document.body.appendChild(overlay);
+
+    // CLOSE BUTTON
+    overlay.querySelector(".close").onclick = () => {
+        overlay.remove();
+    };
+
+    // CLOSE OUTSIDE
+    overlay.onclick = (e) => {
+        if(e.target === overlay){
+            overlay.remove();
+        }
+    };
+}
+function openBodyCard(card){
+
+    const img = card.querySelector("img").src;
+
+    const title = card.dataset.title;
+    const desc = card.dataset.desc;
+    const challenge = card.dataset.challenge;
+    const focus = card.dataset.focus;
+    const workouts = card.dataset.workouts;
+
+    const overlay = document.createElement("div");
+    overlay.classList.add("popup");
+
+    overlay.innerHTML = `
+        <div class="popup-content">
+
+            <span class="close">&times;</span>
+
+            <img src="${img}">
+
+            <h2>${title}</h2>
+
+            <p>${desc}</p>
+
+            <p><b>Challenge:</b> ${challenge}</p>
+            <p><b>Focus:</b> ${focus}</p>
+            <p><b>Best workouts:</b> ${workouts}</p>
+
+        </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    overlay.querySelector(".close").onclick = () => overlay.remove();
+
+    overlay.onclick = (e) => {
+        if(e.target === overlay){
+            overlay.remove();
+        }
+    };
+}
