@@ -1494,23 +1494,79 @@ body{
    hindi sisira ng design
 ========================= */
 
+/* =========================
+   GLOBAL FIX (BALANCE LAYOUT)
+========================= */
+
+body{
+  overflow-x: hidden;
+}
+
+/* container rule para hindi sobrang lapad sa desktop */
+.page,
+.latest,
+.motivation{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* =========================
+   HERO BALANCE (NO SOBRANG HABA)
+========================= */
+
+.hero{
+  min-height: 90vh;   /* hindi full 100vh para di stretched */
+  padding: 80px 40px;
+  gap: 30px;
+}
+
+/* =========================
+   CARDS BALANCE GRID
+========================= */
+
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* FIX CARD SIZE (important) */
+.card{
+  width: clamp(220px, 25vw, 280px);
+}
+
+/* =========================
+   GALLERY FIX (NO SQUISH + NO GAP SA PC)
+========================= */
+
+.gallery{
+  justify-content: center;   /* desktop centered */
+  padding: 20px;
+}
+
+.gallery img{
+  width: 240px;
+  height: 260px;
+}
+
+/* =========================
+   📱 MOBILE ONLY (CLEAN + BREATHING SPACE)
+========================= */
+
 @media (max-width: 768px){
 
-  /* prevent sobrang stretch ng page */
-  body{
-    overflow-x: hidden;
-  }
-
-  /* HERO = sakto lang, hindi sobrang taas */
   .hero{
-    min-height: auto !important;
-    padding: 60px 20px !important;
     flex-direction: column;
     text-align: center;
+    padding: 40px 20px;
+    min-height: auto;
   }
 
   .hero-left h1{
-    font-size: 32px !important;
+    font-size: 34px;
     line-height: 1.2;
   }
 
@@ -1518,28 +1574,21 @@ body{
     font-size: 14px;
   }
 
-  /* HERO IMAGE = hindi malaki sa phone */
-  .hero-img{
-    max-width: 250px !important;
+  /* cards full width but may space */
+  .card{
+    width: 90%;
+    max-width: 340px;
   }
 
-  /* CARDS = hindi dikit dikit / hindi sobrang laki */
   .cards{
     gap: 15px;
-    padding: 20px 10px;
   }
 
-  .card{
-    width: 90% !important;
-    max-width: 320px;
-    margin: 0 auto;
-  }
-
-  /* GALLERY = swipe mode (hindi sira layout) */
+  /* gallery becomes swipe (not cramped) */
   .gallery{
-    justify-content: flex-start !important;
-    padding: 10px !important;
-    gap: 12px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 10px;
   }
 
   .gallery img{
@@ -1547,21 +1596,22 @@ body{
     height: 200px;
   }
 
-  /* NAV = hindi magulo */
+  /* nav clean scroll instead of squish */
   nav{
-    flex-wrap: nowrap;
     overflow-x: auto;
+    white-space: nowrap;
     gap: 10px;
   }
 
   nav a{
     font-size: 12px;
-    white-space: nowrap;
   }
+
+}
 
   /* TEXT = hindi OA laki */
   h1{
-    font-size: 28px !important;
+    font-size: 38px !important;
   }
 
   h2{
@@ -1573,4 +1623,3 @@ body{
     padding: 40px 15px !important;
   }
 
-}
