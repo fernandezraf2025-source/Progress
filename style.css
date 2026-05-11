@@ -1488,3 +1488,89 @@ body{
     padding: 15px;
     color: #ccc;
 }
+@media (max-width: 768px){
+
+/* =========================
+   HERO FIX (hindi sobrang baba)
+========================= */
+.hero{
+  flex-direction: column;
+  padding: 30px 15px;
+  height: auto;        /* 🔥 remove 100vh issue */
+  text-align: center;
+}
+
+.hero-left{
+  width: 100%;
+}
+
+.hero-right{
+  width: 100%;
+  margin-top: 20px;
+}
+
+.hero-left h1{
+  font-size: 32px;
+  line-height: 1.1;
+}
+
+/* =========================
+   NAV FIX (hindi nag-iiba design)
+========================= */
+nav{
+  flex-direction: row;
+  padding: 10px 15px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+nav a{
+  font-size: 12px;
+}
+
+/* =========================
+   CARDS FIX (hindi sobrang laki)
+========================= */
+.cards{
+  flex-direction: column;
+  align-items: center;
+}
+
+.card{
+  width: 90%;
+}
+
+/* =========================
+   BODY TYPE FIX (card scroll)
+========================= */
+.body-scroll{
+  flex-direction: row;
+  overflow-x: scroll;
+  padding: 20px;
+  justify-content: flex-start;
+}
+
+/* =========================
+   GALLERY FIX
+========================= */
+.gallery{
+  padding: 10px;
+  justify-content: flex-start;
+}
+
+/* =========================
+   TEXT FIX
+========================= */
+.page{
+  padding: 40px 15px;
+}
+
+h1{
+  font-size: 28px;
+}
+
+h2{
+  font-size: 20px;
+}
+
+}
