@@ -2251,3 +2251,42 @@ h1,h2{
     max-width:260px;
   }
 }
+/* =========================
+   🔥 HOME CENTER FIX ONLY
+========================= */
+
+.hero-left{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;  /* 🔥 CENTER HORIZONTALLY */
+  text-align:center;   /* 🔥 CENTER TEXT */
+}
+
+/* title (Discipline / Transform You) */
+.hero-left h1{
+  margin:0 auto;
+  text-align:center;
+}
+
+/* paragraph */
+.hero-left p{
+  text-align:center;
+  max-width:500px;
+}
+
+/* info / feature cards inside home */
+.feature-boxes{
+  display:flex;
+  justify-content:center;
+  align-items:stretch;
+  flex-wrap:wrap;
+  gap:20px;
+  margin-top:30px;
+}
+
+/* individual feature card fix */
+.feature{
+  flex:0 1 220px;
+  text-align:center;
+}
