@@ -1249,7 +1249,44 @@ body{
     color: white;
     font-family: 'Poppins', sans-serif;
 }
+@media (max-width: 768px){
 
+    /* HERO STACK */
+    .hero{
+        flex-direction: column;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .hero-left{
+        width: 100%;
+    }
+
+    .hero-right{
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .hero-left h1{
+        font-size: 40px;
+    }
+
+    .feature-boxes{
+        flex-direction: column;
+    }
+
+    /* CARDS STACK ON MOBILE */
+    .cards,
+    .motivation-cards{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card,
+    .mot-card{
+        width: 90%;
+    }
+}
 /* HERO */
 
 .hero{
