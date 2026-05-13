@@ -2290,3 +2290,619 @@ h1,h2{
   flex:0 1 220px;
   text-align:center;
 }
+/* VIDEO PAGE */
+.video-container{
+ display:flex;
+ flex-wrap:wrap;
+ justify-content:center;
+ gap:25px;
+ margin-top:40px;
+}
+
+.video-card{
+ width:320px;
+ background:#111;
+ padding:15px;
+ border-radius:20px;
+ transition:.3s;
+}
+
+.video-card:hover{
+ transform:translateY(-10px);
+ box-shadow:0 0 25px orange;
+}
+
+.video-card video{
+ width:100%;
+ border-radius:15px;
+}
+
+.video-card h3{
+ margin-top:15px;
+ color:orange;
+}
+
+.video-card p{
+ color:#ccc;
+ margin-top:10px;
+}
+
+.video-text{
+ color:#aaa;
+ margin-top:10px;
+}
+/* =========================
+   🎥 YOUTUBE STYLE LAYOUT
+========================= */
+
+.video-category{
+ margin-top:70px;
+}
+
+.category-title{
+ color:orange;
+ font-size:2rem;
+ margin-bottom:25px;
+ text-align:left;
+ padding-left:40px;
+}
+
+/* HORIZONTAL ROW */
+.yt-row{
+ display:flex;
+ gap:25px;
+
+ overflow-x:auto;
+ scroll-behavior:smooth;
+
+ padding:20px 40px;
+}
+
+.yt-row::-webkit-scrollbar{
+ height:8px;
+}
+
+.yt-row::-webkit-scrollbar-thumb{
+ background:orange;
+ border-radius:20px;
+}
+
+/* CARD */
+.yt-card{
+ min-width:350px;
+ max-width:350px;
+
+ background:#111;
+ border-radius:20px;
+ overflow:hidden;
+
+ transition:.4s;
+ flex:0 0 auto;
+}
+
+.yt-card:hover{
+ transform:translateY(-10px) scale(1.03);
+ box-shadow:0 0 30px orange;
+}
+
+/* VIDEO */
+.yt-card video{
+ width:100%;
+ height:220px;
+ object-fit:cover;
+ display:block;
+}
+
+/* INFO */
+.yt-info{
+ padding:15px;
+}
+
+.yt-info h3{
+ color:orange;
+ margin-bottom:10px;
+}
+
+.yt-info p{
+ color:#bbb;
+ line-height:1.5;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.yt-card{
+ min-width:280px;
+}
+
+.category-title{
+ padding-left:20px;
+ font-size:1.5rem;
+}
+
+}
+/* =========================
+   🎬 NETFLIX STYLE
+========================= */
+
+.netflix-section{
+ margin-top:80px;
+}
+
+.netflix-title{
+ color:orange;
+ font-size:2rem;
+ padding-left:40px;
+ margin-bottom:20px;
+}
+
+/* WRAPPER */
+.netflix-wrapper{
+ position:relative;
+}
+
+/* ROW */
+.netflix-row{
+ display:flex;
+ gap:20px;
+
+ overflow-x:auto;
+ scroll-behavior:smooth;
+
+ padding:20px 50px;
+}
+
+.netflix-row::-webkit-scrollbar{
+ display:none;
+}
+
+/* CARD */
+.netflix-card{
+ min-width:320px;
+ background:#111;
+ border-radius:18px;
+ overflow:hidden;
+
+ transition:.4s;
+ flex:0 0 auto;
+
+ position:relative;
+}
+
+.netflix-card:hover{
+ transform:scale(1.08);
+ z-index:10;
+ box-shadow:0 0 35px rgba(255,165,0,.7);
+}
+
+/* VIDEO BOX */
+.video-box{
+ position:relative;
+ overflow:hidden;
+}
+
+/* VIDEO */
+.video-box video{
+ width:100%;
+ height:200px;
+ object-fit:cover;
+ display:block;
+}
+
+/* PLAY BUTTON */
+.play-overlay{
+ position:absolute;
+ inset:0;
+
+ display:flex;
+ justify-content:center;
+ align-items:center;
+
+ font-size:4rem;
+ color:white;
+
+ background:rgba(0,0,0,.3);
+
+ opacity:0;
+ transition:.3s;
+}
+
+.netflix-card:hover .play-overlay{
+ opacity:1;
+}
+
+/* INFO */
+.netflix-info{
+ padding:15px;
+}
+
+.netflix-info h3{
+ color:orange;
+ margin-bottom:10px;
+}
+
+.netflix-info p{
+ color:#bbb;
+ line-height:1.5;
+}
+
+/* ARROWS */
+.netflix-btn{
+ position:absolute;
+ top:40%;
+
+ transform:translateY(-50%);
+
+ background:rgba(0,0,0,.7);
+ color:white;
+
+ border:none;
+
+ width:45px;
+ height:80px;
+
+ cursor:pointer;
+
+ font-size:2rem;
+
+ z-index:20;
+
+ transition:.3s;
+}
+
+.netflix-btn:hover{
+ background:orange;
+ color:black;
+}
+
+.netflix-btn.left{
+ left:0;
+}
+
+.netflix-btn.right{
+ right:0;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.netflix-card{
+ min-width:270px;
+}
+
+.netflix-title{
+ padding-left:20px;
+ font-size:1.5rem;
+}
+
+}
+/* =========================
+   💀 ULTIMATE CARD
+========================= */
+
+.ultimate-card{
+ width:360px;
+ background:#111;
+ border-radius:25px;
+ overflow:hidden;
+
+ transition:.4s;
+
+ position:relative;
+}
+
+.ultimate-card:hover{
+ transform:scale(1.05);
+ box-shadow:0 0 40px orange;
+ z-index:20;
+}
+
+/* VIDEO */
+.ultimate-video-box{
+ position:relative;
+ overflow:hidden;
+}
+
+.ultimate-video-box video{
+ width:100%;
+ height:220px;
+ object-fit:cover;
+ display:block;
+}
+
+/* OVERLAY */
+.ultimate-overlay{
+ position:absolute;
+ inset:0;
+
+ background:linear-gradient(
+ to top,
+ rgba(0,0,0,.9),
+ rgba(0,0,0,.1)
+ );
+
+ display:flex;
+ flex-direction:column;
+ justify-content:space-between;
+
+ opacity:0;
+
+ transition:.3s;
+}
+
+.ultimate-card:hover .ultimate-overlay{
+ opacity:1;
+}
+
+/* BIG PLAY */
+.play-big{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+
+ flex:1;
+
+ font-size:5rem;
+ color:white;
+}
+
+/* BOTTOM CONTROLS */
+.overlay-bottom{
+ display:flex;
+ gap:10px;
+
+ padding:15px;
+}
+
+.control-btn{
+ width:45px;
+ height:45px;
+
+ border:none;
+ border-radius:50%;
+
+ background:rgba(255,255,255,.2);
+
+ color:white;
+ font-size:1.2rem;
+
+ cursor:pointer;
+
+ transition:.3s;
+}
+
+.control-btn:hover{
+ background:orange;
+ color:black;
+ transform:scale(1.1);
+}
+
+/* INFO */
+.ultimate-info{
+ padding:20px;
+}
+
+.ultimate-info h2{
+ color:orange;
+ margin-bottom:10px;
+}
+
+.ultimate-info p{
+ color:#bbb;
+ line-height:1.6;
+}
+
+/* LIKE */
+.action-row{
+ display:flex;
+ align-items:center;
+ gap:15px;
+
+ margin-top:20px;
+}
+
+.like-btn{
+ padding:10px 18px;
+
+ border:none;
+ border-radius:30px;
+
+ background:orange;
+ color:black;
+
+ cursor:pointer;
+
+ font-weight:bold;
+
+ transition:.3s;
+}
+
+.like-btn:hover{
+ transform:scale(1.08);
+ box-shadow:0 0 20px orange;
+}
+
+.like-count{
+ color:#ccc;
+}
+
+/* COMMENTS */
+.comment-box{
+ display:flex;
+ gap:10px;
+
+ margin-top:20px;
+}
+
+.comment-input{
+ flex:1;
+
+ padding:12px;
+
+ border:none;
+ border-radius:12px;
+
+ background:#222;
+ color:white;
+}
+
+.comment-send{
+ padding:12px 18px;
+
+ border:none;
+ border-radius:12px;
+
+ background:orange;
+ color:black;
+
+ cursor:pointer;
+}
+
+/* COMMENT LIST */
+.comments{
+ margin-top:20px;
+}
+
+.single-comment{
+ background:#1b1b1b;
+ padding:10px;
+ border-radius:12px;
+
+ margin-bottom:10px;
+
+ color:#ddd;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.ultimate-card{
+ width:95%;
+}
+
+}
+/* FIX BUTTONS */
+.control-btn,
+.like-btn,
+.comment-send{
+ pointer-events:auto;
+ z-index:999;
+ position:relative;
+}
+
+/* VIDEO FIX */
+.movieVideo{
+ cursor:pointer;
+}
+/* FIX VIDEO */
+.movieVideo{
+ width:100%;
+ display:block;
+}
+
+/* FIX BUTTONS */
+.play-big,
+.control-btn,
+.like-btn,
+.comment-send{
+ cursor:pointer;
+ user-select:none;
+}
+
+/* COMMENT FIX */
+.single-comment{
+ background:#1a1a1a;
+ padding:10px;
+ border-radius:10px;
+ margin-top:10px;
+ color:#ddd;
+ animation:fadeComment .3s ease;
+}
+
+@keyframes fadeComment{
+
+from{
+ opacity:0;
+ transform:translateY(10px);
+}
+
+to{
+ opacity:1;
+ transform:translateY(0);
+}
+
+}
+/* VIDEO BOX */
+.ultimate-video-box{
+ position:relative;
+ overflow:hidden;
+}
+
+/* VIDEO */
+.movieVideo{
+ width:100%;
+ display:block;
+ position:relative;
+ z-index:1;
+}
+
+/* OVERLAY */
+.ultimate-overlay{
+ position:absolute;
+ inset:0;
+
+ z-index:5;
+
+ display:flex;
+ flex-direction:column;
+ justify-content:space-between;
+
+ pointer-events:none;
+}
+
+/* ENABLE BUTTON CLICKS */
+.play-big,
+.control-btn,
+.like-btn,
+.comment-send{
+ pointer-events:auto;
+}
+
+/* PLAY CENTER */
+.play-big{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ flex:1;
+
+ font-size:5rem;
+ color:white;
+
+ cursor:pointer;
+}
+
+/* BUTTON ROW */
+.overlay-bottom{
+ display:flex;
+ gap:10px;
+ padding:15px;
+}
+
+/* BUTTONS */
+.control-btn{
+ width:45px;
+ height:45px;
+
+ border:none;
+ border-radius:50%;
+
+ background:rgba(0,0,0,.7);
+
+ color:white;
+ font-size:1.2rem;
+
+ cursor:pointer;
+
+ z-index:999;
+ position:relative;
+}
