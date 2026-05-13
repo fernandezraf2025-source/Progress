@@ -207,3 +207,211 @@ function openMotivation(card){
         }
     };
 }
+// =========================
+// 🎬 NETFLIX SCROLL
+// =========================
+
+function scrollNetflix(id, direction){
+
+const row = document.getElementById(id);
+
+row.scrollBy({
+ left: direction * 400,
+ behavior: "smooth"
+});
+
+}
+
+
+
+// =========================
+// 💀 VIDEO SYSTEM
+// =========================
+
+document.querySelectorAll('.ultimate-card').forEach(card=>{
+
+const video =
+card.querySelector('.movieVideo');
+
+const playBtn =
+card.querySelector('.playBtn');
+
+const centerPlay =
+card.querySelector('.playCenter');
+
+const muteBtn =
+card.querySelector('.muteBtn');
+
+const fullBtn =
+card.querySelector('.fullscreenBtn');
+
+const likeBtn =
+card.querySelector('.like-btn');
+
+const likeCount =
+card.querySelector('.like-count');
+
+const commentInput =
+card.querySelector('.comment-input');
+
+const commentSend =
+card.querySelector('.comment-send');
+
+const commentsDiv =
+card.querySelector('.comments');
+
+
+
+// ▶ PLAY FUNCTION
+function togglePlay(){
+
+if(video.paused){
+
+// pause all other videos
+document.querySelectorAll('.movieVideo')
+.forEach(v=>{
+
+if(v !== video){
+ v.pause();
+}
+
+});
+
+video.play();
+
+playBtn.innerHTML = "⏸";
+centerPlay.innerHTML = "⏸";
+
+}
+else{
+
+video.pause();
+
+playBtn.innerHTML = "▶";
+centerPlay.innerHTML = "▶";
+
+}
+
+}
+
+
+
+// ▶ BUTTONS
+playBtn.addEventListener('click', togglePlay);
+
+centerPlay.addEventListener('click', togglePlay);
+
+
+
+// 🔊 MUTE
+muteBtn.addEventListener('click', ()=>{
+
+video.muted = !video.muted;
+
+muteBtn.innerHTML =
+video.muted ? "🔇" : "🔊";
+
+});
+
+
+
+// ⛶ FULLSCREEN
+fullBtn.addEventListener('click', (e)=>{
+
+e.stopPropagation();
+
+if(video.requestFullscreen){
+
+video.requestFullscreen();
+
+}
+else if(video.webkitEnterFullscreen){
+
+video.webkitEnterFullscreen();
+
+}
+else if(video.webkitRequestFullscreen){
+
+video.webkitRequestFullscreen();
+
+}
+
+});
+
+
+
+// ❤️ LIKE
+let likes = 0;
+
+likeBtn.addEventListener('click', ()=>{
+
+likes++;
+
+likeCount.innerHTML =
+likes + " Likes ❤️";
+
+likeBtn.style.transform =
+"scale(1.2)";
+
+setTimeout(()=>{
+
+likeBtn.style.transform =
+"scale(1)";
+
+},200);
+
+});
+
+
+
+// 💬 COMMENTS
+commentSend.addEventListener('click', ()=>{
+
+const text =
+commentInput.value.trim();
+
+if(text !== ""){
+
+const div =
+document.createElement('div');
+
+div.classList.add('single-comment');
+
+div.innerHTML =
+"💬 " + text;
+
+commentsDiv.prepend(div);
+
+commentInput.value = "";
+
+}
+
+});
+
+});
+
+
+
+// =========================
+// 🔥 FADE-IN
+// =========================
+
+const fades =
+document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', ()=>{
+
+fades.forEach(fade=>{
+
+const top =
+fade.getBoundingClientRect().top;
+
+if(top < window.innerHeight - 100){
+
+fade.classList.add('show');
+
+}
+
+});
+
+});
